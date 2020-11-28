@@ -1,0 +1,39 @@
+{
+  "name": "trigitactions",
+  "version": "1.0.0",
+  "description": "Trigger git actions with cli ",
+  "main": "src/index.js",
+  "bin": {
+    "@hackstudio/run": "bin/run",
+    "run": "bin/run"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tchangang Boris-Emmanuel",
+  "keywords": [
+    "cli",
+    "create-project",
+    "github",
+    "actions",
+    "gitactions",
+    "trigger git action",
+    "manual gitaction",
+    "manual github action",
+    "github event",
+    "start git action"
+  ],
+  "license": "ISC",
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "dependencies": {
+    "arg": "^5.0.0",
+    "esm": "^3.2.25",
+    "inquirer": "^7.3.3"
+  }
+}
