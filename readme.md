@@ -9,7 +9,7 @@ It uses @ocktokit under the hood and can be launched in 1 min.
 
 ```javascript
 npm i -g trigitactions
-yarn add -g trigitactions
+yarn global add trigitactions
 ```
 One installed you have 3 commands:
 - trigit: help menu for trigitactions cli
