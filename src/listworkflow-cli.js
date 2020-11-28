@@ -1,5 +1,5 @@
 import arg from 'arg';
-import { Octokit } from '@octokit/core';
+import { Octokit } from '@octokit/rest';
 import colors from 'colors';
 
 function parseArgumentsIntoOptions(rawArgs) {
@@ -47,14 +47,14 @@ export function cli(args) {
         owner: options.owner,
         repo: options.repo,
     };
-    octokit.request('GET /repos/{owner}/{repo}/actions/workflows', config)
+    octokit.paginate('GET /repos/{owner}/{repo}/actions/workflows', config)
         .then((res) => {
             console.log(`Owner: ${options.owner} | Repo: ${options.repo}`.green);
-            console.log(`Workflow found: ${res.data.total_count}`);
-            res.data.workflows.filter((workflow) => (!options.q || (options.q && workflow.name.toLowerCase().includes(options.q)))).forEach((workflow) => {
+            console.log(`Workflow found: ${(res.filter((workflow) => (!options.q || (options.q && workflow.name.toLowerCase().includes(options.q))))).length}`);
+            res.filter((workflow) => (!options.q || (options.q && workflow.name.toLowerCase().includes(options.q)))).forEach((workflow) => {
                 console.log(`id: ${workflow.id} | name: ${workflow.name} | filename: ${workflow.path.split('/').pop()}`);
             });
-            if (res.data.workflows.length > 0) {
+            if (res.length > 0) {
                 console.log('\nYou can use id or filename as worfkow_id parameters'.green);
             }
         })
