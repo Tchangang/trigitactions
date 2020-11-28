@@ -4,11 +4,20 @@
   "description": "Trigger git actions with cli ",
   "main": "src/index.js",
   "bin": {
-    "@hackstudio/run": "bin/run",
-    "run": "bin/run"
+    "@hackstudio/runworkflow": "bin/runworkflow",
+    "runworkflow": "bin/runworkflow",
+    "@hackstudio/trigit": "bin/trigit",
+    "trigit": "bin/trigit",
+    "@hackstudio/listworflow": "bin/listworkflow",
+    "listworkflow": "bin/listworkflow"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "homepage": "https://github.com/Tchangang/trigitactions#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tchangang/trigitactions.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
